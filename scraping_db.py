@@ -36,8 +36,8 @@ log = logging.getLogger(__name__)
 from google.colab import userdata
 
 #This is for colab, using Colab secrets
-SUPABASE_URL = userdata.get("SUPABASE_URL")
-SUPABASE_KEY = userdata.get("SUPABASE_KEY")
+SUPABASE_URL: str = os.environ.get("SUPABASE_URL", "")
+SUPABASE_KEY: str = os.environ.get("SUPABASE_KEY", "")
 
 SETS_TABLE:   str = "tcg_sets"
 PRICES_TABLE: str = "tcg_card_prices"
