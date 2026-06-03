@@ -99,7 +99,7 @@ SETS_TO_SCRAPE = [
 ]
 
 #Parameters for selenium
-PAGE_LOAD_TIMEOUT = 500
+PAGE_LOAD_TIMEOUT = 700
 SCROLL_PAUSE      = 2
 BATCH_SIZE        = 500
 
@@ -297,10 +297,11 @@ def insert_prices(client: Client, cards: list[CardPrice]) -> None:
 #This method actually puts the stuff into the database and into a CSV file
 
 def main() -> None:
-    client = get_client()
 
     for set_cfg in SETS_TO_SCRAPE:
         set_record = SetRecord(**set_cfg)
+        
+        client = get_client()
 
         # 1. Ensure the set exists in tcg_sets
         upsert_set(client, set_record) #Comment out if you just want the CSV
@@ -325,6 +326,8 @@ def main() -> None:
 
         # 4. Append to Supabase
         insert_prices(client, cards) #Comment out if you just want the CSV
+
+        time.sleep(7)
 
     log.info("All sets complete.")
 
