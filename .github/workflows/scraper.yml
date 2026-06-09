@@ -8,7 +8,6 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -19,12 +18,8 @@ jobs:
           python-version: "3.12"
 
       - name: Install Python dependencies
-        run: pip install selenium webdriver-manager supabase
-
-      - name: Install Google Chrome
         run: |
-          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+          pip install selenium supabase
 
       - name: Run scraper
         env:
