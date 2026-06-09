@@ -7,7 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/12FvKN6zEo3ny4OR7wNIiSBHmircn3jEO
 """
 
-!pip install selenium webdriver-manager supabase
 
 import os
 import re
@@ -33,7 +32,7 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-from google.colab import userdata
+#from google.colab import userdata
 
 #This is for colab, using Colab secrets
 SUPABASE_URL: str = os.environ.get("SUPABASE_URL", "")
