@@ -3,7 +3,7 @@ name: TCGPlayer Weekly Scraper
 on:
   schedule:
     - cron: "0 9 * * 0"  # Every Sunday at 9AM UTC
-  workflow_dispatch:       # Lets you also trigger it manually anytime
+  workflow_dispatch:      
 
 jobs:
   scrape:
